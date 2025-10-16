@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37d1a09e0f39652499cba0ee20add5e4, type: 3}
+  m_Name: MagicBook
+  m_EditorClassIdentifier: 
+  itemName: Libro Magico
+  icon: {fileID: 21300000, guid: c21b060cbb8312447950b421cf8d6aa8, type: 3}
+  prefab: {fileID: 2932469614169810276, guid: 62c8bc523ec0f6a45ab78441f35bed00, type: 3}
+  stackMax: 1
+  pickupSound: {fileID: 8300000, guid: 73f427b6e26d8034a8c8647a130324ee, type: 3}
+  dropSound: {fileID: 0}
+  itemType: 0
+  weaponData:
+    weaponName: Magic Book
+    weaponPrefab: {fileID: 2932469614169810276, guid: 62c8bc523ec0f6a45ab78441f35bed00, type: 3}
+    attackDistance: 10
+    attackDelay: 1
+    attackSpeed: 1
+    attackDamage: 30
+    weaponType: 1
+    useAttackAnimations: 0
+    hitEffect: {fileID: 0}
+    weaponSwing: {fileID: 0}
+    hitSound: {fileID: 0}
+    magicProjectilePrefab: {fileID: 4170680618369511551, guid: 0452ff4899c3a1d42840dd3adbb15747, type: 3}
+    projectileSpeed: 20
+    explosionRadius: 2
+    fireballSound: {fileID: 8300000, guid: 12918d93c2f103848b0ecbc6d9baaf3d, type: 3}
+    magicExplosionSound: {fileID: 8300000, guid: bed64f723c717b9479d193209adc212e, type: 3}
+    fireballVolume: 1
+    explosionVolume: 2
+  consumableData:
+    consumableType: 0
+    healAmount: 0
+    duration: 0
+    consumeEffect: {fileID: 0}
+    consumeSound: {fileID: 0}
