@@ -25,7 +25,6 @@ public class CoinPickup : MonoBehaviour
         // Add slight random rotation
         transform.Rotate(0, Random.Range(0, 360), 0);
         
-        // Auto-destruir después del tiempo de vida
         // esto es para que no se quede en el suelo para siempre y porque algunas monedas estan dando error y se caen al vacio
         Destroy(gameObject, lifetime);
         

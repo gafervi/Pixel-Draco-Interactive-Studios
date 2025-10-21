@@ -74,7 +74,7 @@ public class Data
     [Range(0, 100)]
     [SerializeField] public int middleObjectsRate;
 
-    // Other Settings: Ceilings, Decorations, Chests
+    // Other Settings:las que hice extra 
     [Header("Other Settings")]
     [SerializeField] public bool generateCeiling;
     [SerializeField] public List<ObjectList> ceilings = new List<ObjectList>();
@@ -89,7 +89,7 @@ public class Data
     [Range(0, 100)]
     [SerializeField] public int ChestRate;
 
-    // LOD Settings
+    // pruebas de oso de LOD Settings
     [Header("LOD Settings")]
     [Range(0.1f, 50f)]
     [SerializeField] public float lodDistance = 30f; // Distancia a la que se ocultan los objetos

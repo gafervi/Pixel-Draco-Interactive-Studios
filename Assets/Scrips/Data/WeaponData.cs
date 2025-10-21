@@ -17,7 +17,6 @@ public class WeaponData
     public WeaponType weaponType = WeaponType.Melee;
     
     [Header("Animation Settings")]
-    [Tooltip("Si es true, usa animaciones Attack 1/2. Si es false, no usa animaciones")]
     public bool useAttackAnimations = true;
 
     [Header("Weapon Effects")]

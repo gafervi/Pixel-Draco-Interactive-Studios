@@ -67,13 +67,11 @@ public class EnemyAdvanced : MonoBehaviour
     {
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
         
-        // Si el jugador está en rango de detección
         if (distanceToPlayer <= detectionRange)
         {
             // Mover hacia el jugador
             MoveTowardsPlayer();
             
-            // Atacar si está en rango
             if (distanceToPlayer <= attackRange)
             {
                 AttackPlayer();
@@ -187,14 +185,13 @@ public class EnemyAdvanced : MonoBehaviour
         return (float)currentHealth / maxHealth;
     }
 
-    // Método para dibujar rangos en el editor
+
     void OnDrawGizmosSelected()
     {
-        // Rango de ataque (rojo)
+      
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
         
-        // Rango de detección (amarillo)
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, detectionRange);
     }
