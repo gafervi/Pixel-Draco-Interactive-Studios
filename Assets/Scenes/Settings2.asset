@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Settings2
   m_EditorClassIdentifier: 
   generation:
-    minRooms: 10
-    maxRooms: 15
+    minRooms: 4
+    maxRooms: 6
     amountOfAdjacentRoomsToConnect: 3
     minRoomWidth: 8
     maxRoomWidth: 12
@@ -36,12 +36,16 @@ MonoBehaviour:
     wallDecorations:
     - gameObject: {fileID: 1159351990771520630, guid: 4a11c046113e91c4a8caa3ec197f172c, type: 3}
       name: 
+    - gameObject: {fileID: 1159351990771520630, guid: d85066739fa22944b933f2db0f2cfe88, type: 3}
+      name: 
     wallLightRate: 2
     wallDecorationRate: 1
     outerCorners:
     - gameObject: {fileID: 846660900058230754, guid: 98e36766157384a498d0203a3cb59c76, type: 3}
       name: Outer Corner
-    innerCorners: []
+    innerCorners:
+    - gameObject: {fileID: 355312524381552382, guid: 02339d2aea3f07844bdb4c1f4feba273, type: 3}
+      name: 
     deleteInnerCorners: 0
     uCorners:
     - gameObject: {fileID: 3197583449942763538, guid: c57fc9f9737ee4a48b7c924e6cded283, type: 3}
@@ -49,7 +53,9 @@ MonoBehaviour:
     squareCorners:
     - gameObject: {fileID: 5583044776952808449, guid: 51b17d5deef608b4cbd0d4e917ac0ce0, type: 3}
       name: Square Corner
-    doors: []
+    doors:
+    - gameObject: {fileID: 8131962463112704483, guid: ba4672641a825984697dcd7d6c56d278, type: 3}
+      name: 
     doorsDisplacements: []
     flooring:
     - gameObject: {fileID: 7564636611156017616, guid: e7a79a14190d3d34f93236ba7164d734, type: 3}
@@ -68,7 +74,9 @@ MonoBehaviour:
     wallObjDisplacements: []
     cornerObjectsRate: 0
     destroyablesRate: 0
-    middleObjects: []
+    middleObjects:
+    - gameObject: {fileID: 4170680618369511551, guid: 0452ff4899c3a1d42840dd3adbb15747, type: 3}
+      name: 
     middleObjectsRate: 0
     generateCeiling: 0
     ceilings:
@@ -90,4 +98,3 @@ MonoBehaviour:
     - gameObject: {fileID: 4302944737786620945, guid: d429c8a2280208c43ace747d82fa1864, type: 3}
       name: 
     ChestRate: 1
-    lodDistance: 30

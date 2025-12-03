@@ -88,11 +88,6 @@ public class Data
     [SerializeField] public List<ObjectList> chests = new List<ObjectList>();
     [Range(0, 100)]
     [SerializeField] public int ChestRate;
-
-    // pruebas de oso de LOD Settings
-    [Header("LOD Settings")]
-    [Range(0.1f, 50f)]
-    [SerializeField] public float lodDistance = 30f; // Distancia a la que se ocultan los objetos
 }
 
 [System.Serializable]

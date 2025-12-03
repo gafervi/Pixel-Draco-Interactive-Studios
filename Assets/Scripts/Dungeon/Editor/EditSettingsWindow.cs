@@ -156,7 +156,7 @@ public class EditSettingsWindow : EditorWindow
 
     private void OnGUI()
     {
-        currentProperty = serializedObject.FindProperty("generation");
+        currentProperty = serializedObject.FindProperty("generation");  
 
         EditorGUILayout.BeginHorizontal();
         DrawSidebar();

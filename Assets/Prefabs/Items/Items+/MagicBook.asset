@@ -23,8 +23,8 @@ MonoBehaviour:
     weaponName: Magic Book
     weaponPrefab: {fileID: 2932469614169810276, guid: 62c8bc523ec0f6a45ab78441f35bed00, type: 3}
     attackDistance: 10
-    attackDelay: 1
-    attackSpeed: 1
+    attackDelay: 0.34
+    attackSpeed: 0.04
     attackDamage: 30
     weaponType: 1
     useAttackAnimations: 0
@@ -32,7 +32,7 @@ MonoBehaviour:
     weaponSwing: {fileID: 0}
     hitSound: {fileID: 0}
     magicProjectilePrefab: {fileID: 4170680618369511551, guid: 0452ff4899c3a1d42840dd3adbb15747, type: 3}
-    projectileSpeed: 20
+    projectileSpeed: 30
     explosionRadius: 2
     fireballSound: {fileID: 8300000, guid: 12918d93c2f103848b0ecbc6d9baaf3d, type: 3}
     magicExplosionSound: {fileID: 8300000, guid: bed64f723c717b9479d193209adc212e, type: 3}

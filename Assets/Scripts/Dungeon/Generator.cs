@@ -102,14 +102,7 @@ public class Generator : MonoBehaviour
     private int wallLightRate;
     private int wallDecorationRate;
     
-    // LOD System
-    private Camera playerCamera;
-    private float lodDistance; // Distancia a la que se ocultan los objetos
-    private List<GameObject> lodObjects = new List<GameObject>(); // Lista de objetos que se pueden ocultar
-
-
-
-
+    
 
 
     private void Awake()
@@ -346,11 +339,6 @@ public class Generator : MonoBehaviour
         wallDecorationRate = settings.wallDecorationRate;
         if (wallDecorationRate == 0 && wallDecorations.Count > 0)
             Debug.Log("Rate of Wall Decorations can not equal 0 for Wall Decorations objects to be generated.");
-
-        // LOD Settings
-        lodDistance = settings.lodDistance;
-
-
     }
 
     private bool CheckListObject(List<ObjectList> objectList)
@@ -456,10 +444,6 @@ public class Generator : MonoBehaviour
         GenerateDoors();
 
         GenerateContent();
-
-        // Initialize LOD system (after entities are spawned)
-        // InitializeLODSystem();
-
         DoubleCheckRoomCorners();
 
         SpawnEntities();
@@ -2002,13 +1986,6 @@ public class Generator : MonoBehaviour
         if (player != null)
         {
             player = Instantiate(Player, PlayerSpawnRoom.transform.position, Quaternion.identity, gameObject.transform);
-            
-            // Get player camera for LOD system
-            playerCamera = player.GetComponentInChildren<Camera>();
-            if (playerCamera == null)
-            {
-                playerCamera = Camera.main;
-            }
         }
 
         if (bosses.Count > 0)
@@ -2023,9 +2000,6 @@ public class Generator : MonoBehaviour
         {
             SpawnEnemies();
         }
-
-        // Initialize LOD system after all entities are spawned
-        InitializeLODSystem();
     }
 
     private void GenerateContent()
@@ -2693,141 +2667,5 @@ public class Generator : MonoBehaviour
         return false;
     }
 
-    // LOD System Methods
-    private void InitializeLODSystem()
-    {
-        // Collect all objects that should be affected by LOD
-        CollectLODObjects();
-        
-        // Start LOD update coroutine
-        StartCoroutine(UpdateLOD());
-    }
-
-    private void CollectLODObjects()
-    {
-        lodObjects.Clear();
-        
-        // Add all decorations
-        for (int i = 0; i < parentRooms.Length; i++)
-        {
-            if (parentRooms[i] != null)
-            {
-                // Add decorations
-                foreach (GameObject decoration in parentRooms[i].Decorations)
-                {
-                    if (decoration != null)
-                        lodObjects.Add(decoration);
-                }
-                
-                // Add chests
-                foreach (GameObject chest in parentRooms[i].Chests)
-                {
-                    if (chest != null)
-                        lodObjects.Add(chest);
-                }
-                
-                // Add ceilings
-                foreach (GameObject ceiling in parentRooms[i].Ceilings)
-                {
-                    if (ceiling != null)
-                        lodObjects.Add(ceiling);
-                }
-            }
-        }
-        
-        // Add ALL walls, corners, and other objects (except floors)
-        for (int a = 0; a < areaWidth; a++)
-        {
-            for (int b = 0; b < areaHeight; b++)
-            {
-                if (area[a, b] != null)
-                {
-                    // Add all objects except floors
-                    if (!area[a, b].CompareTag("Floor"))
-                    {
-                        lodObjects.Add(area[a, b]);
-                    }
-                }
-            }
-        }
-        
-        // Add door objects
-        foreach (GameObject door in doorGameObjects)
-        {
-            if (door != null)
-                lodObjects.Add(door);
-        }
-        
-        Debug.Log($"LOD System initialized with {lodObjects.Count} objects");
-    }
-
-    private System.Collections.IEnumerator UpdateLOD()
-    {
-        while (true)
-        {
-            if (playerCamera != null)
-            {
-                UpdateLODObjects();
-            }
-            else
-            {
-                // Try to find camera if not found
-                if (player != null)
-                {
-                    playerCamera = player.GetComponentInChildren<Camera>();
-                    if (playerCamera == null)
-                    {
-                        playerCamera = Camera.main;
-                    }
-                }
-            }
-            yield return new WaitForSeconds(0.1f); // Update every 0.1 seconds
-        }
-    }
-
-    private void UpdateLODObjects()
-    {
-        Vector3 cameraPosition = playerCamera.transform.position;
-        int hiddenCount = 0;
-        int visibleCount = 0;
-        
-        foreach (GameObject obj in lodObjects)
-        {
-            if (obj != null)
-            {
-                float distance = Vector3.Distance(cameraPosition, obj.transform.position);
-                bool shouldBeVisible = distance <= lodDistance;
-                
-                // Only update if visibility state changed
-                if (obj.activeInHierarchy != shouldBeVisible)
-                {
-                    obj.SetActive(shouldBeVisible);
-                }
-                
-                if (shouldBeVisible)
-                    visibleCount++;
-                else
-                    hiddenCount++;
-            }
-        }
-        
-        // Debug info every 5 seconds
-        if (Time.time % 5f < 0.1f)
-        {
-            Debug.Log($"LOD: {visibleCount} visible, {hiddenCount} hidden, Distance: {lodDistance}");
-        }
-    }
-
-    // Public method to adjust LOD distance at runtime
-    public void SetLODDistance(float newDistance)
-    {
-        lodDistance = newDistance;
-    }
-
-    // Public method to get current LOD distance
-    public float GetLODDistance()
-    {
-        return lodDistance;
-    }
 }
     
