@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: key
   m_EditorClassIdentifier: 
   itemName: llave
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 1fc9d085a00d2734cbf2058e110d6d1f, type: 3}
   prefab: {fileID: 374289202576707483, guid: 78df1db2fbc8ec64f949fac0c05bf693, type: 3}
   stackMax: 1
   pickupSound: {fileID: 8300000, guid: fe92817e51b8af640bf769b7c9502137, type: 3}
   dropSound: {fileID: 0}
-  itemType: 1
+  itemType: 2
   weaponData:
     weaponName: 
     weaponPrefab: {fileID: 0}
