@@ -17,7 +17,7 @@ MonoBehaviour:
   prefab: {fileID: 8203073568141072114, guid: 6931c416faa95fc41b3a471496be9bcc, type: 3}
   stackMax: 1
   pickupSound: {fileID: 8300000, guid: fe92817e51b8af640bf769b7c9502137, type: 3}
-  dropSound: {fileID: 0}
+  dropSound: {fileID: 8300000, guid: 7923190c5e80b4d4d9396acc5d0b48cf, type: 3}
   itemType: 0
   weaponData:
     weaponName: Axe1
