@@ -6,7 +6,6 @@ public class FafnirInteract : MonoBehaviour
     [Header("Referencias")]
     public FafnirController fafnir;
 
-
     [Header("Input")]
     public KeyCode interactKey = KeyCode.E;
 
@@ -14,12 +13,12 @@ public class FafnirInteract : MonoBehaviour
     public TMP_Text promptText;
 
     private bool playerInside = false;
+    private PlayerKeys cachedKeys; 
 
     private void Awake()
     {
         if (fafnir == null)
             fafnir = GetComponentInParent<FafnirController>();
-
 
         if (promptText != null)
             promptText.gameObject.SetActive(false);
@@ -30,26 +29,28 @@ public class FafnirInteract : MonoBehaviour
         fafnir = GetComponentInParent<FafnirController>();
     }
 
-
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player")) return;
+
         playerInside = true;
-        Debug.Log("[FafnirInteract] Player dentro. Presiona E.");
+
+        cachedKeys = other.GetComponentInParent<PlayerKeys>();
+
         if (promptText != null)
             promptText.gameObject.SetActive(true);
     }
 
-
     private void OnTriggerExit(Collider other)
     {
         if (!other.CompareTag("Player")) return;
+
         playerInside = false;
-        Debug.Log("[FafnirInteract] Player fuera.");
+        cachedKeys = null;
+
         if (promptText != null)
             promptText.gameObject.SetActive(false);
     }
-
 
     private void Update()
     {
@@ -58,17 +59,13 @@ public class FafnirInteract : MonoBehaviour
             if (promptText != null) promptText.gameObject.SetActive(false);
             return;
         }
+
         if (!playerInside) return;
         if (!Input.GetKeyDown(interactKey)) return;
 
-
         if (fafnir == null)
-        {
-            Debug.LogError("[FafnirInteract] Falta asignar referencia a FafnirController.");
             return;
-        }
 
-
-        fafnir.Interact();
+        fafnir.Interact(cachedKeys);
     }
 }

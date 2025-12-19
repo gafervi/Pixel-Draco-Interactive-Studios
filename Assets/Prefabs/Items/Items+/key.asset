@@ -18,7 +18,7 @@ MonoBehaviour:
   stackMax: 1
   pickupSound: {fileID: 8300000, guid: fe92817e51b8af640bf769b7c9502137, type: 3}
   dropSound: {fileID: 0}
-  itemType: 2
+  itemType: 4
   weaponData:
     weaponName: 
     weaponPrefab: {fileID: 0}

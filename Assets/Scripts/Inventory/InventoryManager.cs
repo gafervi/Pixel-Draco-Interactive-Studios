@@ -327,11 +327,16 @@ public class InventoryManager : MonoBehaviour
                 droppedItem = new GameObject($"Dropped_{currentItem.itemName}");
                 droppedItem.transform.position = dropPosition;
             }
-            
-            // Add pickup component
-            ItemPickup pickup = droppedItem.AddComponent<ItemPickup>();
+
+            // Add or reuse pickup component (evita duplicados)
+            ItemPickup pickup = droppedItem.GetComponent<ItemPickup>();
+            if (pickup == null)
+            {
+                pickup = droppedItem.AddComponent<ItemPickup>();
+            }
             pickup.SetItemData(currentItem, 1, true); // Marcar como item tirado
-            
+
+
             // Play drop sound
             if (currentItem.dropSound != null)
             {

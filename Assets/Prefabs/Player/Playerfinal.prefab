@@ -3468,7 +3468,7 @@ Camera:
   m_GameObject: {fileID: 6558259941545241495}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -3492,7 +3492,7 @@ Camera:
     height: 1
   near clip plane: 0.01
   far clip plane: 1000
-  field of view: 60.000004
+  field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -4000,6 +4000,7 @@ GameObject:
   - component: {fileID: 7974034815881176960}
   - component: {fileID: 2161962872386698336}
   - component: {fileID: 556621038926284279}
+  - component: {fileID: 1868784383268737373}
   m_Layer: 8
   m_Name: Playerfinal
   m_TagString: Player
@@ -4191,8 +4192,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 100
-  healthRegenRate: 5
-  healthRegenDelay: 3
   currentCoins: 0
   coinCollectSound: {fileID: 8300000, guid: aff8fb183fcfd5e438911d91ea9761af, type: 3}
   OnHealthChanged:
@@ -4287,6 +4286,21 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 09f3d6f13638ec04793c672c2e10725f, type: 2}
   - {fileID: 11400000, guid: d1268b26554daf643be1c5432b242c4b, type: 2}
   inventoryManager: {fileID: 2161962872386698336}
+--- !u!114 &1868784383268737373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7516504950655031436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c084f5de17408634fb27a3e1748986d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keys: 0
+  enableCheat: 1
+  cheatKey: 107
 --- !u!1 &7651773941535799777
 GameObject:
   m_ObjectHideFlags: 0
