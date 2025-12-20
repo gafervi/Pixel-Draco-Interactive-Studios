@@ -7,8 +7,11 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
-    guid: 1be27d73ff187234caf2f6d8de68b08c
-  - enabled: 1
+    guid: 26446d52a814fda47838f2fea0ddd210
+  - enabled: 0
     path: Assets/Scenes/fireball.unity
-    guid: 09b5cd429b0ef1a40ad5ecf6fbf7e99a
+    guid: 48c95de79e84dfa4a9a42c20141a683d
+  - enabled: 1
+    path: Assets/Scenes/Nivel_1.unity
+    guid: aca0e453e0d767c4893a6fc2533ae9bc
   m_configObjects: {}

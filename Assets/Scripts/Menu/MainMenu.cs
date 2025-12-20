@@ -5,19 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public GameObject optionsMenu;
-    public GameObject mainMenu;
+    public GameObject MenuPrincipal;
+    public GameObject MenuOpciones;
+
+    // --- OPCIONES ---
+    public AudioSource audioSource;   // Música o audio principal
 
     public void OpenMainPanel()
     {
-        mainMenu.SetActive(true);
-        optionsMenu.SetActive(false);
+        MenuPrincipal.SetActive(true);
+        MenuOpciones.SetActive(false);
     }
 
     public void OpenOptionsPanel()
     {
-        mainMenu.SetActive(false);
-        optionsMenu.SetActive(true);
+        MenuPrincipal.SetActive(false);
+        MenuOpciones.SetActive(true);
     }
 
     public void QuitGame()
@@ -27,7 +30,17 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene("fireball");
+        SceneManager.LoadScene("Nivel_1");
     }
 
+    public void ToggleFullscreen(bool isFullscreen)
+    {
+        Screen.fullScreen = isFullscreen;
+    }
+
+    public void ChangeVolume(float volume)
+    {
+        audioSource.volume = volume;
+    }
 }
+
